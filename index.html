@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Standalone ERP — a global, multi-country ERP built on Bun</title>
+<meta name="description" content="A global multi-country ERP with dual deployment (SaaS + Raspberry Pi). 99 business modules. Built on Bun, Elysia, Drizzle, PostgreSQL 17, React + Vite." />
+<meta property="og:title" content="Standalone ERP" />
+<meta property="og:description" content="Global multi-country ERP. Dual deployment (SaaS + Raspberry Pi). 99 modules. Built on Bun, Elysia, Drizzle, PostgreSQL." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1020'/%3E%3Ctext x='50%25' y='54%25' font-size='32' text-anchor='middle' fill='%2375e0b6' font-family='ui-monospace,monospace' font-weight='700'%3ES%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #0b1020;
+    --bg-elev: #11172e;
+    --bg-card: #151c38;
+    --border: #232b50;
+    --text: #e7ecff;
+    --muted: #97a1c8;
+    --accent: #75e0b6;
+    --accent-2: #8ab4ff;
+    --warn: #ffb86b;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(1200px 600px at 20% -10%, #1a2256 0%, transparent 60%),
+                radial-gradient(900px 500px at 110% 10%, #1f3a4d 0%, transparent 55%),
+                var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 16, 32, 0.7);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 700; letter-spacing: 0.2px; color: var(--text);
+  }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #0b1020; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: ui-monospace, monospace;
+  }
+  .nav a { color: var(--muted); margin-left: 18px; font-size: 0.95rem; }
+  .nav a:hover { color: var(--text); text-decoration: none; }
+
+  .hero { padding: 88px 0 56px; }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent); font-size: 0.8rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 10px; border: 1px solid #1f3a3a;
+    border-radius: 999px; background: rgba(117, 224, 182, 0.08);
+  }
+  h1 {
+    margin: 18px 0 14px;
+    font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+    line-height: 1.08; letter-spacing: -0.02em;
+  }
+  .hero p.lede {
+    max-width: 720px;
+    color: var(--muted); font-size: 1.1rem;
+  }
+  .cta-row { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-elev);
+    color: var(--text);
+    font-weight: 600;
+    transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:hover { background: #182148; border-color: #2c3768; text-decoration: none; }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #0b1020; border-color: transparent;
+  }
+  .btn.primary:hover { filter: brightness(1.05); }
+
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  section h2 {
+    font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -0.01em;
+  }
+  section .section-sub {
+    color: var(--muted); margin-bottom: 28px;
+  }
+
+  .grid {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .card h3 {
+    margin: 0 0 6px; font-size: 1.05rem;
+  }
+  .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+  .stack-list {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 6px;
+  }
+  .chip {
+    font-family: ui-monospace, "JetBrains Mono", SFMono-Regular, monospace;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    background: rgba(255,255,255,0.02);
+  }
+  .chip strong { color: var(--text); font-weight: 600; }
+
+  .modules {
+    display: grid; gap: 6px 14px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    margin-top: 8px;
+    font-family: ui-monospace, "JetBrains Mono", SFMono-Regular, monospace;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .modules span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .modules span::before { content: "› "; color: var(--accent); }
+
+  .stat-row {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-top: 8px;
+  }
+  .stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .stat .n {
+    font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+  .stat .l { color: var(--muted); font-size: 0.9rem; }
+
+  pre.code {
+    background: #0a0f24;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    overflow-x: auto;
+    font-family: ui-monospace, "JetBrains Mono", monospace;
+    font-size: 0.85rem;
+    color: #cfe1ff;
+  }
+  pre.code .c { color: #6c7ba8; }
+  pre.code .k { color: var(--accent-2); }
+  pre.code .s { color: var(--accent); }
+
+  footer {
+    padding: 36px 0 60px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+  }
+  footer .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  .note {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border: 1px solid #3a3458;
+    background: rgba(255, 184, 107, 0.06);
+    color: #f3d9b0;
+    border-radius: 12px;
+    font-size: 0.92rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">S</span>
+      Standalone ERP
+    </a>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#stack">Stack</a>
+      <a href="#modules">Modules</a>
+      <a href="#status">Status</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top: none;">
+    <div class="wrap">
+      <span class="eyebrow">Work in progress · foundation complete</span>
+      <h1>A global, multi-country ERP — built to run on the cloud <em>or</em> on a Raspberry Pi.</h1>
+      <p class="lede">
+        Standalone ERP is a modular accounting and operations platform with
+        99 business modules, a strict double-entry accounting engine, and a
+        plugin-based country-pack architecture. One codebase. Two deployment
+        targets: hosted SaaS, or a self-contained box on the customer's
+        premises.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="#features">See what it does</a>
+        <a class="btn" href="#stack">Tech stack</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>What's inside</h2>
+      <p class="section-sub">Built around a strict accounting engine, with everything else layered on top.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Strict double-entry engine</h3>
+          <p>Every posting balances per company, per currency. Cost-centre allocations sum to 100% or the posting refuses. Reversal preserves audit history.</p>
+        </div>
+        <div class="card">
+          <h3>Multi-tenant, multi-company</h3>
+          <p>Row-level security at the database. Companies live under tenants; cross-company access is explicit and audited.</p>
+        </div>
+        <div class="card">
+          <h3>Country packs as plugins</h3>
+          <p>Tax rules, statutory reports, and chart templates ship per country (India, Nepal, …) and can be installed or removed without touching core.</p>
+        </div>
+        <div class="card">
+          <h3>Dual deployment</h3>
+          <p>The same binary runs as a hosted SaaS service or as a single-file deployment on a Raspberry Pi for on-premise customers.</p>
+        </div>
+        <div class="card">
+          <h3>Tally-prime familiar UX</h3>
+          <p>Keyboard-first workflows, F-key navigation, and voucher entry that anyone coming from Tally can use on day one.</p>
+        </div>
+        <div class="card">
+          <h3>Audit-grade integrity</h3>
+          <p>Hash-chained activity log, period locks, balance assertions, idempotent imports. The data is supposed to be defensible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <h2>Stack</h2>
+      <p class="section-sub">Locked technology choices — chosen for performance, type-safety, and single-binary distribution.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Runtime &amp; server</h3>
+          <div class="stack-list">
+            <span class="chip"><strong>Bun</strong></span>
+            <span class="chip"><strong>TypeScript</strong></span>
+            <span class="chip"><strong>Elysia</strong></span>
+            <span class="chip">Better Auth</span>
+            <span class="chip">TypeBox</span>
+            <span class="chip">pg-boss</span>
+            <span class="chip">Pino</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Database</h3>
+          <div class="stack-list">
+            <span class="chip"><strong>PostgreSQL 17</strong></span>
+            <span class="chip"><strong>Drizzle ORM</strong></span>
+            <span class="chip">drizzle-typebox</span>
+            <span class="chip">RLS-first schema</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Frontend</h3>
+          <div class="stack-list">
+            <span class="chip"><strong>React</strong></span>
+            <span class="chip"><strong>Vite</strong></span>
+            <span class="chip">TanStack Router</span>
+            <span class="chip">shadcn/ui</span>
+            <span class="chip">React-PDF</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Money &amp; time</h3>
+          <div class="stack-list">
+            <span class="chip"><strong>Dinero.js</strong></span>
+            <span class="chip">@dinero.js/currencies</span>
+            <span class="chip">date-fns</span>
+            <span class="chip">date-fns-tz</span>
+          </div>
+        </div>
+      </div>
+
+      <pre class="code" style="margin-top:20px"><span class="c"># getting started locally</span>
+<span class="k">bun</span> install
+<span class="k">cp</span> .env.example .env
+<span class="k">bun</span> run db:push         <span class="c"># apply schema to dev DB</span>
+<span class="k">bun</span> run dev             <span class="c"># start the server</span></pre>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="wrap">
+      <h2>99 modules and counting</h2>
+      <p class="section-sub">Each module owns its own schema, services, tests, and error types — kept small enough to reason about in isolation.</p>
+
+      <div class="stat-row">
+        <div class="stat"><div class="n">99</div><div class="l">business modules</div></div>
+        <div class="stat"><div class="n">24+</div><div class="l">modules at 100% guard-test saturation</div></div>
+        <div class="stat"><div class="n">RLS</div><div class="l">tenant isolation at the DB layer</div></div>
+        <div class="stat"><div class="n">2</div><div class="l">deployment targets (SaaS + Pi)</div></div>
+      </div>
+
+      <div class="modules" style="margin-top:24px" aria-label="Module list">
+        <span>accounting</span><span>accounts</span><span>ai</span><span>api-portal</span>
+        <span>audit</span><span>autocomplete</span><span>balance-assertions</span><span>bank-driver</span>
+        <span>banking</span><span>bank-reconciliation</span><span>bill-references</span><span>bom</span>
+        <span>ca</span><span>calendar-adapter</span><span>certifications</span><span>close-ritual</span>
+        <span>coa-tree</span><span>consolidation</span><span>cost-centres</span><span>country-in</span>
+        <span>country-np</span><span>country-packs</span><span>credit-note-matching</span><span>day-book</span>
+        <span>delivery-notes</span><span>employees</span><span>export</span><span>f12</span>
+        <span>fiscal</span><span>fixed-assets</span><span>fx</span><span>godowns</span>
+        <span>hash-chain</span><span>import</span><span>integrations</span><span>intercompany</span>
+        <span>interest</span><span>inventory</span><span>item-categories</span><span>item-groups</span>
+        <span>items</span><span>journal-templates</span><span>kpi</span><span>landed-cost</span>
+        <span>manufacturing</span><span>material-movements</span><span>memorandum</span><span>oauth2</span>
+        <span>opening-balances</span><span>parties</span><span>payments</span><span>payment-terms</span>
+        <span>payroll</span><span>period-lock</span><span>pharma</span><span>price-lists</span>
+        <span>print-templates</span><span>purchase-bills</span><span>purchase-orders</span><span>purchases</span>
+        <span>quotations</span><span>rbac</span><span>receipt-notes</span><span>recurring-invoices</span>
+        <span>reorder</span><span>report-builder</span><span>reports</span><span>reversal</span>
+        <span>reversing-journals</span><span>sales</span><span>sales-orders</span><span>sample-data</span>
+        <span>scheduled-reports</span><span>security</span><span>sequences</span><span>stock-journal</span>
+        <span>stock-transfers</span><span>tally-export</span><span>tally-interop</span><span>tax</span>
+        <span>tenancy</span><span>tracking-numbers</span><span>units</span><span>valuation</span>
+        <span>vertical-packs</span><span>voucher-classes</span><span>voucher-types</span><span>webhooks</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="wrap">
+      <h2>Status</h2>
+      <p class="section-sub">Where the project actually is, today.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Foundation complete</h3>
+          <p>Schema, accounting engine, tenancy/RLS, fiscal periods, and the core master-CRUD families are in place and audit-tested.</p>
+        </div>
+        <div class="card">
+          <h3>Audit-walk in progress</h3>
+          <p>An ongoing program of error-path saturation testing. 24+ modules currently at 100% guard coverage.</p>
+        </div>
+        <div class="card">
+          <h3>Country packs</h3>
+          <p>India and Nepal packs in active development. The plugin contract is stable — additional countries layer on without core changes.</p>
+        </div>
+      </div>
+      <div class="note">
+        This is a developer-built project under active construction. The source
+        repository is private. This page is a public summary, not a product launch.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <div>
+      Built by <a href="https://github.com/forgesaroj">@forgesaroj</a>
+      · last updated 2026-05-13
+    </div>
+    <div>
+      <a href="https://github.com/forgesaroj">github.com/forgesaroj</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
