@@ -1,9 +1,10 @@
 # forgesaroj.github.io
 
-Personal landing page hosted via GitHub Pages.
+Personal GitHub Pages site — currently serving the landing page for
+**Aria** (a desktop ERP with Tally-Prime keyboard muscle-memory and a
+modern backend).
 
-Currently featuring: **Standalone ERP** — a global multi-country ERP with
-dual deployment (SaaS + Raspberry Pi), 99 modules, built on Bun + Elysia
-+ Drizzle + PostgreSQL.
-
-The page is a single static `index.html` — no build step.
+Static files:
+- `index.html` — the landing page (sourced from `aria-app/landing.html`)
+- `aria-tokens.css` — design tokens
+- `.nojekyll` — skips Jekyll processing
