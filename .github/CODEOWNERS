@@ -1,0 +1,6 @@
+# SAHARA ERP landing — change-control policy.
+# Every file in this repo requires review by the owner before merge.
+# This is a marketing surface that goes live the moment main moves —
+# every change is reviewed by Forgesaroj, no exceptions.
+
+*       @Forgesaroj
