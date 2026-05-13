@@ -1,0 +1,62 @@
+# SAHARA ERP — robots policy
+# Marketing surfaces are open to all crawlers (search + AI).
+# Authed app surfaces are 401-gated, so explicit Disallow is belt-and-braces.
+
+User-agent: *
+Allow: /landing
+Allow: /pricing
+Allow: /solutions
+Allow: /security
+Allow: /docs
+Allow: /signup
+Allow: /login
+
+Disallow: /api/
+Disallow: /dashboard
+Disallow: /settings
+Disallow: /audit
+Disallow: /reports
+Disallow: /invoices
+Disallow: /bills
+Disallow: /payments
+Disallow: /parties
+Disallow: /accounts
+Disallow: /items
+Disallow: /ca/
+Disallow: /tally/
+Disallow: /india/
+Disallow: /np/
+Disallow: /banking/
+Disallow: /onboarding
+
+# Sitemap
+Sitemap: https://saharaerp.com/sitemap.xml
+
+# AI assistant crawlers — explicitly welcome marketing pages
+User-agent: GPTBot
+Allow: /landing
+Allow: /pricing
+Allow: /solutions
+Allow: /security
+Allow: /docs
+
+User-agent: ClaudeBot
+Allow: /landing
+Allow: /pricing
+Allow: /solutions
+Allow: /security
+Allow: /docs
+
+User-agent: PerplexityBot
+Allow: /landing
+Allow: /pricing
+Allow: /solutions
+Allow: /security
+Allow: /docs
+
+User-agent: Google-Extended
+Allow: /landing
+Allow: /pricing
+Allow: /solutions
+Allow: /security
+Allow: /docs

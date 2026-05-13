@@ -1,10 +1,4 @@
-# forgesaroj.github.io
+# SAHARA ERP — public landing page (auto-built from Standlone-Lumora-ERP/client/src/landing).
+# Live at https://forgesaroj.github.io/
+# Made in Nepal by SAHARA Labs with love for everyone.
 
-Personal GitHub Pages site — currently serving the landing page for
-**Aria** (a desktop ERP with Tally-Prime keyboard muscle-memory and a
-modern backend).
-
-Static files:
-- `index.html` — the landing page (sourced from `aria-app/landing.html`)
-- `aria-tokens.css` — design tokens
-- `.nojekyll` — skips Jekyll processing
