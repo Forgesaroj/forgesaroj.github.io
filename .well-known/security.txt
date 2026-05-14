@@ -1,0 +1,22 @@
+# SAHARA ERP — security policy (RFC 9116)
+# https://forgesaroj.github.io/.well-known/security.txt
+
+Contact: mailto:security@saharaerp.com
+Contact: https://forgesaroj.github.io/security
+Expires: 2027-05-14T00:00:00.000Z
+Preferred-Languages: en, ne, hi
+Canonical: https://forgesaroj.github.io/.well-known/security.txt
+Policy: https://forgesaroj.github.io/security
+
+# Scope
+# - https://forgesaroj.github.io/* (this marketing site)
+# - SAHARA ERP product application (private repo; report responsibly)
+#
+# Out of scope
+# - Companion projects unless explicitly listed at /security
+# - DoS / volumetric attacks
+#
+# Disclosure timeline
+# - We acknowledge within 24 hours
+# - Initial triage within 5 working days
+# - Public credit if you wish, after a coordinated fix

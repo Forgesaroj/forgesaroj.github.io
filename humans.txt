@@ -1,0 +1,32 @@
+/* TEAM */
+
+  Founder + Lead engineer: Saroj Rijal
+  Site: https://github.com/Forgesaroj
+  Contact: hello@saharaerp.com
+  Location: Kathmandu, Nepal
+
+/* THANKS */
+
+  To every Nepalese and Indian SMB owner who told us what was broken.
+  To every accountant who survived late-night software crashes the day before filing.
+  To the team at Khalti for setting the bar on Nepali engineering culture.
+
+/* SITE */
+
+  Last update: 2026-05-14
+  Standards: HTML5, CSS3, ES2022, JSON-LD, robots.txt, sitemap.xml
+  Components: React 18, Vite 5
+  Built in: Kathmandu
+  Hosted: GitHub Pages
+  Made with: ♥ and lots of चिया
+
+/* SISTER PROJECTS */
+
+  Oddy MRP Sticker Printer: https://forgesaroj.github.io/oddy-printer/
+  (Free, browser-based, made for Nepal's MRP requirement)
+
+/* SOURCE */
+
+  Marketing site: github.com/Forgesaroj/forgesaroj.github.io
+  Product source: private (Standlone-Lumora-ERP)
+  Built from: client/src/landing as an isolated marketing-only bundle

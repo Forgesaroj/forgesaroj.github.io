@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="SAHARA ERP — Modern ERP made in Nepal by SAHARA Labs">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07080f"/>
+      <stop offset="55%" stop-color="#0d1020"/>
+      <stop offset="100%" stop-color="#131736"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4cd6c1"/>
+      <stop offset="100%" stop-color="#6e8cff"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#4cd6c1" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#4cd6c1" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#4cd6c1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#6e8cff" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#6e8cff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#6e8cff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="rgba(199,212,240,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <ellipse cx="950" cy="180" rx="380" ry="280" fill="url(#orb)"/>
+  <ellipse cx="180" cy="520" rx="320" ry="240" fill="url(#orb2)"/>
+
+  <!-- Top-left: tiny dev-progress pill -->
+  <g transform="translate(72,72)">
+    <rect x="0" y="0" width="320" height="36" rx="18" fill="rgba(245,166,108,0.16)" stroke="rgba(245,166,108,0.42)" stroke-width="1"/>
+    <circle cx="18" cy="18" r="4" fill="#f5c66c"/>
+    <text x="32" y="23" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#e6ebf5" letter-spacing="0.04em">ACTIVE DEVELOPMENT · 67% TO BETA</text>
+  </g>
+
+  <!-- Brand mark + name (top) -->
+  <g transform="translate(72,140)">
+    <rect x="0" y="0" width="48" height="48" rx="12" fill="url(#brandGrad)"/>
+    <text x="22" y="34" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#07221d" text-anchor="middle">S</text>
+    <text x="68" y="34" font-family="Inter, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#e6ebf5" letter-spacing="0.02em">SAHARA</text>
+    <text x="195" y="34" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="500" fill="rgba(230,235,245,0.6)" letter-spacing="0.16em">ERP</text>
+  </g>
+
+  <!-- Hero text -->
+  <g transform="translate(72,250)">
+    <text font-family="Inter, -apple-system, sans-serif" font-size="68" font-weight="700" fill="#e6ebf5" letter-spacing="-0.03em">
+      <tspan x="0" y="0">The ERP your accountant</tspan>
+      <tspan x="0" y="80">already knows.</tspan>
+    </text>
+    <text x="0" y="148" font-family="Inter, -apple-system, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.01em">
+      <tspan fill="url(#brandGrad)">Made in Nepal.</tspan>
+      <tspan dx="14" fill="rgba(230,235,245,0.65)">Built for South Asia.</tspan>
+    </text>
+  </g>
+
+  <!-- Bottom-left: badges -->
+  <g transform="translate(72,468)" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600">
+    <g>
+      <rect x="0" y="0" width="160" height="32" rx="16" fill="rgba(76,214,193,0.10)" stroke="rgba(76,214,193,0.3)" stroke-width="1"/>
+      <text x="80" y="21" fill="#4cd6c1" text-anchor="middle">Free for solo</text>
+    </g>
+    <g transform="translate(170,0)">
+      <rect x="0" y="0" width="190" height="32" rx="16" fill="rgba(76,214,193,0.10)" stroke="rgba(76,214,193,0.3)" stroke-width="1"/>
+      <text x="95" y="21" fill="#4cd6c1" text-anchor="middle">GSTR + IRD CBMS live</text>
+    </g>
+    <g transform="translate(370,0)">
+      <rect x="0" y="0" width="180" height="32" rx="16" fill="rgba(76,214,193,0.10)" stroke="rgba(76,214,193,0.3)" stroke-width="1"/>
+      <text x="90" y="21" fill="#4cd6c1" text-anchor="middle">Hash-chain audit</text>
+    </g>
+    <g transform="translate(560,0)">
+      <rect x="0" y="0" width="160" height="32" rx="16" fill="rgba(76,214,193,0.10)" stroke="rgba(76,214,193,0.3)" stroke-width="1"/>
+      <text x="80" y="21" fill="#4cd6c1" text-anchor="middle">WhatsApp Bot</text>
+    </g>
+  </g>
+
+  <!-- Bottom-left: Made-in-Nepal -->
+  <g transform="translate(72,548)">
+    <text font-family="Inter, -apple-system, sans-serif" font-size="17" font-weight="500" fill="rgba(230,235,245,0.55)" letter-spacing="0.02em">
+      🇳🇵 Made in Nepal with ♥ for everyone · SAHARA Labs · Kathmandu
+    </text>
+  </g>
+
+  <!-- Bottom-right: URL -->
+  <g transform="translate(1128,548)" text-anchor="end">
+    <text font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="17" font-weight="500" fill="#4cd6c1">
+      forgesaroj.github.io
+    </text>
+  </g>
+
+  <!-- Decorative: right-side dashboard mock pills -->
+  <g transform="translate(720,170)" opacity="0.85">
+    <rect x="0" y="0" width="380" height="220" rx="14" fill="#0d1020" stroke="rgba(76,214,193,0.22)" stroke-width="1"/>
+    <text x="20" y="32" font-family="Inter, sans-serif" font-size="11" fill="rgba(230,235,245,0.5)" letter-spacing="0.14em">TODAY · REVENUE</text>
+    <text x="20" y="76" font-family="ui-monospace, monospace" font-size="40" font-weight="700" fill="#e6ebf5">
+      <tspan fill="#4cd6c1" font-size="22">₹</tspan>8,47,250
+    </text>
+    <text x="20" y="98" font-family="ui-monospace, monospace" font-size="13" fill="#22c993">▲ +12.4% vs yesterday</text>
+    <!-- mini sparkline -->
+    <polyline points="20,170 60,160 100,166 140,148 180,152 220,140 260,142 300,134 340,132 360,128" fill="none" stroke="#4cd6c1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="360" cy="128" r="4" fill="#4cd6c1"/>
+    <!-- 2 tiles -->
+    <g transform="translate(20,182)">
+      <text font-family="Inter, sans-serif" font-size="10" fill="rgba(230,235,245,0.4)" letter-spacing="0.1em">COLLECTION · ₹3.2 L</text>
+    </g>
+    <g transform="translate(200,182)">
+      <text font-family="Inter, sans-serif" font-size="10" fill="rgba(245,166,108,0.95)" letter-spacing="0.1em">GST DUE · ₹1,84,500</text>
+    </g>
+  </g>
+</svg>

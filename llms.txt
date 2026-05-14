@@ -1,0 +1,64 @@
+# SAHARA ERP
+
+> A modern ERP made in Kathmandu, Nepal, by SAHARA Labs. Built for wholesale, retail, pharma, manufacturers, CAs and restaurants across Nepal and India. One platform for accounting, Nepal VAT + India GST filing, banking, audit, and WhatsApp automation. Familiar keyboard chords your accountant already knows. Free forever for solo, ₹999/month for teams. **In active development — public beta opens soon.**
+
+SAHARA ERP is a modern ERP currently being built by SAHARA Labs (Kathmandu, Nepal). It combines double-entry accounting, India GST (GSTR-1/3B/2B + IRN + e-Way), Nepal VAT (Anusuchi-13/10 + IRD CBMS + NRB FX), inventory + BOM + banking + audit + WhatsApp automation in a single self-hostable platform. Designed for cross-border South Asian SMBs whose existing accounting software treats Nepal and India as separate worlds.
+
+## Site
+
+- [Home](https://forgesaroj.github.io/landing): hero, founder story, problem narrative, feature universe, business flow, audit, WhatsApp bot demo, smart print generator, deployment options, comparison, pricing, FAQ
+- [Pricing](https://forgesaroj.github.io/pricing): 3 tiers, monthly/annual toggle, feature comparison matrix, ROI calculator, FAQ
+- [Solutions](https://forgesaroj.github.io/solutions): 6 industry verticals (wholesale, retail, pharma, manufacturer, CA firm, restaurant)
+- [Security & Trust](https://forgesaroj.github.io/security): 6 trust pillars, compliance posture, contact desks
+- [Docs](https://forgesaroj.github.io/docs): 39 articles across 11 topic categories
+- [Contact](https://forgesaroj.github.io/contact): visitor inquiry form
+
+## Pricing
+
+- **Starter**: ₹0/month forever. 1 user, 1 company, 100 vouchers/month. Self-host or free cloud.
+- **Growth**: ₹999/month (₹799/mo annual). 5 users, 3 companies, unlimited vouchers. Full GST + e-Invoice + Bank UTR auto-match + WhatsApp Bot (lookup + draft).
+- **Scale**: ₹2,999/month (₹2,399/mo annual). Unlimited users + unlimited companies. WhatsApp Bot (file + post + OTP) + AI command bar + CA workbench + Nepal IRD CBMS live + anomaly detection.
+
+All tiers include the free [Oddy MRP Printer](https://forgesaroj.github.io/oddy-printer/) companion app for Nepal's MRP sticker requirement.
+
+## Key capabilities
+
+- **Familiar keyboard chords** — F4-F11 voucher chords + Alt+G universal Go-To + Ctrl+G switch-to — the shortcuts experienced accountants already know, zero retraining
+- **India compliance** — GSTR-1 / 3B / 2B reconciliation, e-Invoice IRN (NIC IRP), e-Way Bill, TDS / TCS / 24Q / 26AS, GSTR amendments register
+- **Nepal compliance** — Anusuchi-13 (per-voucher), Anusuchi-10 (monthly), Schedule-8 rebate, IRD CBMS live submission, NRB FX feed, BS calendar 2079-2089, अक्षरमा up to खरब
+- **Banking** — feed health from 5 Indian banks (HDFC/ICICI/SBI/Axis/Kotak), UTR auto-match (ML), cheque lifecycle, bank reconciliation, DLQ inbox
+- **Audit-grade trust** — SHA-256 hash chain (D4 ledger), DB-level period locks, balance assertions, edit-log diff, restatement detector, intercompany eliminations, FX arbitrage register
+- **WhatsApp Bot** — lookup ("GST kab hai?") + draft creation + OTP-protected posting + auto-PDF share
+- **AI command bar** (preview) — natural-language queries over the live ledger, NL → SQL with read-only guard
+- **CA workbench** — multi-client traffic-light grid, magic-link invitations, propose-JV-then-owner-approves flow
+- **Deployment** — self-host single-binary (Bun) or cloud · Pi 4/5 friendly · mobile PWA · offline-first
+- **Companion app**: free [Oddy MRP Sticker Printer](https://forgesaroj.github.io/oddy-printer/) for Nepal MRP labelling
+
+## Positioning
+
+SAHARA's positioning: the ERP your accountant already knows (familiar keyboard chords), modernised for the cross-border South Asian SMB. We don't name specific competitors — most accounting tools handle one country well and the other poorly, and we're building for both.
+
+## Made in Nepal
+
+SAHARA Labs is being built in Kathmandu, Nepal, by people tired of accounting software that wasn't built for South Asia. The product is shipped with the explicit mission "made in Nepal with love for everyone."
+
+## Contact
+
+- Sales / general: hello@saharaerp.com
+- Customer support: support@saharaerp.com
+- Security disclosure: security@saharaerp.com
+- Data protection officer: dpo@saharaerp.com
+
+## Development status
+
+We are **in active development**. The current build is approximately 67% of the way to public beta. Currently shipping: WhatsApp Bot · AI command bar · Mobile PWA polish. Public beta opens soon — sign up via the contact form for early access.
+
+## Honest claims
+
+- We do NOT have 12,400+ customers yet — that's a target, not a current count
+- We are NOT GA — this is a development-phase marketing site
+- The product is being built and pre-launch beta-tested by SAHARA Labs' own team and a small group of friendly Nepalese + Indian SMBs
+
+## License + trademarks
+
+This marketing site source is in [Forgesaroj/forgesaroj.github.io](https://github.com/Forgesaroj/forgesaroj.github.io). The ERP product source is private. Mentioned trademarks belong to their respective owners.

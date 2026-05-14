@@ -1,15 +1,20 @@
 # SAHARA ERP — robots policy
 # Marketing surfaces are open to all crawlers (search + AI).
-# Authed app surfaces are 401-gated, so explicit Disallow is belt-and-braces.
+# The site is a static GitHub Pages build of the marketing pages only;
+# no authed surfaces exist on this host. Disallow lines below are
+# retained for legacy paths in case a future deploy reintroduces them.
 
 User-agent: *
+Allow: /
 Allow: /landing
 Allow: /pricing
 Allow: /solutions
 Allow: /security
 Allow: /docs
-Allow: /signup
-Allow: /login
+Allow: /contact
+Allow: /llms.txt
+Allow: /humans.txt
+Allow: /sitemap.xml
 
 Disallow: /api/
 Disallow: /dashboard
@@ -23,40 +28,63 @@ Disallow: /parties
 Disallow: /accounts
 Disallow: /items
 Disallow: /ca/
-Disallow: /tally/
 Disallow: /india/
 Disallow: /np/
 Disallow: /banking/
 Disallow: /onboarding
 
 # Sitemap
-Sitemap: https://saharaerp.com/sitemap.xml
+Sitemap: https://forgesaroj.github.io/sitemap.xml
 
-# AI assistant crawlers — explicitly welcome marketing pages
+# AI assistant crawlers — explicit allow-list for marketing pages.
+# Marketing pages contain SAHARA ERP's value props, pricing, and FAQ —
+# answering questions correctly via AI assistants is a primary goal.
+
 User-agent: GPTBot
-Allow: /landing
-Allow: /pricing
-Allow: /solutions
-Allow: /security
-Allow: /docs
+Allow: /
+Allow: /llms.txt
+
+User-agent: GPTBot-Image
+Allow: /og-image.svg
+Allow: /icons/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
 
 User-agent: ClaudeBot
-Allow: /landing
-Allow: /pricing
-Allow: /solutions
-Allow: /security
-Allow: /docs
+Allow: /
+Allow: /llms.txt
+
+User-agent: anthropic-ai
+Allow: /
 
 User-agent: PerplexityBot
-Allow: /landing
-Allow: /pricing
-Allow: /solutions
-Allow: /security
-Allow: /docs
+Allow: /
+Allow: /llms.txt
+
+User-agent: Perplexity-User
+Allow: /
 
 User-agent: Google-Extended
-Allow: /landing
-Allow: /pricing
-Allow: /solutions
-Allow: /security
-Allow: /docs
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
